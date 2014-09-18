@@ -7,6 +7,22 @@ public class Greeter2 {
 	greeting = s;
     }
 
+    // constructors
+
+    /* -the name is the same as the class name
+       -there is no return type
+       -its ALWAYS public
+    */
+
+    public Greeter(String g) {
+	greeting = g;
+    }
+
+    public Greeter() {
+	greeting = "Hello";
+
+    }
+
     public String getGreeting() {
 	return greeting;
     }
