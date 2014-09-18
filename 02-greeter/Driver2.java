@@ -17,6 +17,9 @@ public class Driver2 {
 	g1.greet();
 	g2.greet();
 
+	String s = g1.getGreeting();
+	System.out.println("g1's greeting is:"+s);
+
     }
 
 }
