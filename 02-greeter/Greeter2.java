@@ -14,11 +14,11 @@ public class Greeter2 {
        -its ALWAYS public
     */
 
-    public Greeter(String g) {
+    public Greeter2(String g) {
 	greeting = g;
     }
 
-    public Greeter() {
+    public Greeter2() {
 	greeting = "Hello";
 
     }
@@ -33,6 +33,14 @@ public class Greeter2 {
     }
     public void ungreet() {
 	System.out.println("I'm out");
+    }
+
+    public String greetPerson(String name) {
+	return greeting+" "+name;
+    }
+
+    public String loudGreet() {
+	return greeting.toUpperCase();
     }
 
 }
