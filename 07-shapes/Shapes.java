@@ -111,5 +111,43 @@ public class Shapes {
 	}
 	int a = ( h - 1 ) / 2;
 	int b = 0;
-	
+	while ( b < ( h - 1 ) / 2 ) {
+	    int c = 0;
+	    while ( c < b + 2 ) {
+		end = end + " ";
+		c = c + 1;
+	    }
+	    int m = a * 2 - 1;
+	    while ( m > 0 ) {
+		end = end + "*";
+		m = m - 1;
+	    }
+	    end = end + "\n";
+	    a = a - 1;
+	    b = b + 1;
+	}
+	return end;
+    }
+    
+    public String triangle4( int h ) {
+	int x = 0;
+	int y = h;
+	String end = "";
+	while ( x < h ) {
+	    int s = h;
+	    while ( s > y ) {
+		end = end + " ";
+		s = s - 1;
+	    }
+	    int n = 0;
+	    while ( n < y ) {
+		end = end + "*";
+		n = n + 1;
+	    }
+	    end = end + "\n";
+	    x = x + 1;
+	    y = y - 1;
+	}
+	return end;
+    }
 }
