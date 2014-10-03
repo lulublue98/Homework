@@ -33,19 +33,83 @@ public class Shapes {
 	int x = 0;
 	String end = "";
 	while ( x <= h ) {
-	    int y = 0;
-	    while ( y < h-1) {
+	    int y = h;
+	    while ( y > x) {
 		end = end + " ";
-		y = y + 1;
+		y = y - 1;
 	    }
-	    int y = 0;
-	    while (y < x){
+	    int z = 0;
+	    while (z < x){
 		end = end + "*";
-		y = y + 1;
+		z = z + 1;
 	    }
 	    end = end + "\n";
 	    x = x + 1;
 	}
 	return end;
     }
+
+    public String triangle3(int h) {
+	int x = 0;
+	int y = h;
+	String end = "";
+	while ( x < h ) {
+	    int z = 0;
+	    while ( z < y ) {
+		end = end + " ";
+		z = z + 1;
+	    }
+	    int n = x * 2 + 1;
+	    while ( n > 0 ) {
+		end = end + "*";
+		n = n - 1;
+	    }
+	    end = end + "\n";
+	    x = x + 1;
+	    y = y - 1;
+	}
+	return end;
+    }
+    
+    public String triangle3for(int h) {
+	String end = "";
+	int x;
+	int y = h;
+	for (x=0;x<h;x=x+1) {
+	    int z;
+	    for (z=0;z<y;z=z+1) {
+		end = end + " ";
+	    }
+	    int n;
+	    for (n=x*2+1;n>0;n=n-1) {
+		end = end + "*";
+	    }
+	    end = end + "\n";
+	    y = y - 1;
+	}
+	return end;
+    }
+
+    public String diamond(int h) {
+        int x = 0;
+	int y = ( h + 1 ) / 2;
+	String end = "";
+	while ( x < ( h + 1 ) / 2 ) {
+	    int z = 0;
+	    while ( z < y ) {
+		end = end + " ";
+		z = z + 1;
+	    }
+	    int n = x * 2 + 1;
+	    while ( n > 0 ) {
+		end = end + "*";
+		n = n - 1;
+	    }
+	    end = end + "\n";
+	    x = x + 1;
+	    y = y - 1;
+	}
+	int a = ( h - 1 ) / 2;
+	int b = 0;
+	
 }
