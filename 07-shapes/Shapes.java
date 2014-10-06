@@ -151,4 +151,30 @@ public class Shapes {
 	return end;
     }
 
+    public String frame(int r, int c) {
+	int x = 0;
+	int y = r - 2;
+	String end = "";
+        int a;
+	for (a=0;a<c;a=a+1) {
+	    end = end + "*";
+	}
+	end = end + "\n";
+	while ( x < y ) {
+	    end = end + "*";
+	    int b = c - 2;
+	    int d;
+	    for(d=0;d<b;d=d+1) {
+		end = end + " ";
+	    }
+	    end = end + "*\n";
+	    x = x + 1;
+	}
+	for (a=0;a<c;a=a+1) {
+	    end = end + "*";
+	}
+	end = end + "\n";
+	return end;
+    }
+
 }

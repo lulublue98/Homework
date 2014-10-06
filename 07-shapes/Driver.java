@@ -12,5 +12,9 @@ public class Driver {
 	System.out.println(s3.diamond(5));
 	System.out.println(s3.diamond(7));
 	System.out.println(s3.triangle4(4));
+	Shapes s4 = new Shapes();
+	System.out.println(s4.frame(6,5));
+	System.out.println(s4.frame(5,7));
     }
+
 }
