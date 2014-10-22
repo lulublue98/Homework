@@ -18,9 +18,9 @@ public class MoreStrings {
 	    end = end + str.substring(0,1);
 	}
 	while ( x < y-1 ) {
-	    int z = x;
-	    String a = str.substring(z,z+1);
-	    if ( a != "x" ) {
+	    String a = str.substring(x,x+1);
+	    String b = "x";
+	    if ( a = b ) {
 		end = end + " * ";
 	    }
 	    x = x + 1;

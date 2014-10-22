@@ -1,7 +1,7 @@
 public class Driver {
-    public status void main(STring[] args) {
+    public static void main(String[] args) {
 	MoreStrings n = new MoreStrings();
 	System.out.println(n.stringSplosion("Meow"));
-	System.out.println(n.stringX("xx"));
+	System.out.println(n.stringX("xMexowx"));
     }
 }
