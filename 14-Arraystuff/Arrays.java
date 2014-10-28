@@ -46,4 +46,15 @@ public class Arrays {
 	}
 	return y;
     }
+
+    public int freq( int i ) {
+	int count = 0;
+	for (int x = 0;x<a.length;x=x+1) {
+	    if ( a[x] == i ) {
+		count = count + 1;
+	    }
+	}
+	return count;
+    }
+
 }
