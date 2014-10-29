@@ -6,7 +6,7 @@ public class Driver {
 	System.out.println("120 is at index " + x);
 	int y = A1.maxVal();
 	System.out.println("the maximum value is " + y);
-	String z = A1.freqString(3);
-	System.out.println(z);
+	int z = A1.freq(112);
+	System.out.println("112 occurs " + z + " times");
     }
 }
