@@ -12,11 +12,9 @@ public class Driver {
 	}
 	System.out.println(list);
 	int n = 0;
-	int size = 20;
-	while (n<=size) {
-	    if ( list.get(n) == list.get(n-1) ) {
+	while (n<list.size()-1) {
+	    if ( list.get(n) == list.get(n+1) ) {
 		list.remove(n);
-		size = size - 1;
 	    } else {
 		n = n + 1;
 	    }
