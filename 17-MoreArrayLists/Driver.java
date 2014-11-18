@@ -9,6 +9,6 @@ public class Driver {
 	System.out.println(array);
 	array.randomize();
 	System.out.println(array);
-	
+
     }
 }
