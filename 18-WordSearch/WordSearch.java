@@ -79,6 +79,11 @@ public class WordSearch {
 	    r = r + 1;
 	}
     }
+    public boolean canAdd(int r, int c) {
+	if ( board[r][c] == "." ) {
+	    return true;
+	} else if ( board
+    }
 
     public static void main(String[] args) {
 	WordSearch W = new WordSearch();
