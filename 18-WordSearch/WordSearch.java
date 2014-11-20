@@ -3,8 +3,12 @@
 public class WordSearch {
 
     private char[][] board;
+    private int Row;
+    private int Col;
 
     public WordSearch(int r, int c) {
+	Row = r;
+	Col = c;
 	board = new char[r][c];
 	for (int i=0;i<board.length;i=i+1) {
 	    for (int j=0;j<board[i].length;j=j+1) {
@@ -27,73 +31,105 @@ public class WordSearch {
 	return s;
     }
 
-    public void addWordH(String w, int row, int col) {
+    public boolean checker(String w, int row, int col, int rdirection, int cdirection) {
 	int r = row;
-	int c = col;	
+	int c = col;
 	for(int i=0;i<w.length();i=i+1) {
-	    board[r][c] = w.charAt(i);
-	    c = c + 1;
+	    if ( r > Row - 1 || r < 0 ) {
+		return false;
+	    } else if ( c > Col - 1 || c < 0 ) {
+		return false;
+	    } else  if ( board[r][c] != '.' &&  w.charAt(i) != board[r][c] ) {
+		return false;
+	    }
+	    c = c + cdirection;
+	    r = r + rdirection;
+	}
+	return true;
+    }
+    public void addWordHlf(String w, int row, int col) {
+	int r = row;
+	int c = col;
+	if ( checker(w, r, c, 0, 1) == true ) {
+	    for(int i=0;i<w.length();i=i+1) {
+		board[r][c] = w.charAt(i);
+		c = c + 1;
+	    }
 	}
     }
-    public void addWordV(String w, int row, int col) {
+    public void addWordVdw(String w, int row, int col) {
 	int r = row;
 	int c = col;	
-	for(int i=0;i<w.length();i=i+1) {
-	    board[r][c] = w.charAt(i);
-	    r = r + 1;
+	if ( checker(w, r, c, 1, 0) == true ) {
+	    for(int i=0;i<w.length();i=i+1) {
+		board[r][c] = w.charAt(i);
+		r = r + 1;
+	    }
+	}
+    }
+    public void addWordHrt(String w, int row, int col) {
+	int r = row;
+	int c = col;
+	if ( checker(w, r, c, 0, -1) == true ) {
+	    for(int i=0;i<w.length();i=i+1) {
+		board[r][c] = w.charAt(i);
+		c = c - 1;
+	    }
+	}
+    }
+    public void addWordVup(String w, int row, int col) {
+	int r = row;
+	int c = col;	
+	if ( checker(w, r, c, -1, 0) == true ) {
+	    for(int i=0;i<w.length();i=i+1) {
+		board[r][c] = w.charAt(i);
+		r = r - 1;
+	    }
 	}
     }
     public void addWordSE(String w, int row, int col) {
 	int r = row;
 	int c = col;
-	for(int i=0;i<w.length();i=i+1) {
-	    board[r][c] = w.charAt(i);
-	    c = c + 1;
-	    r = r + 1;
+	if ( checker(w, r, c, 1, 1) == true ) {
+	    for(int i=0;i<w.length();i=i+1) {
+		board[r][c] = w.charAt(i);
+		c = c + 1;
+		r = r + 1;
+	    }
 	}
     }
     public void addWordNW(String w, int row, int col) {
 	int r = row;
 	int c = col;
-	for(int i=0;i<w.length();i=i+1) {
-	    board[r][c] = w.charAt(i);
-	    c = c - 1;
-	    r = r - 1;
+	if ( checker(w, r, c, -1, -1) == true ) {
+	    for(int i=0;i<w.length();i=i+1) {
+		board[r][c] = w.charAt(i);
+		c = c - 1;
+		r = r - 1;
+	    }
 	}
     }
     public void addWordNE(String w, int row, int col) {
 	int r = row;
 	int c = col;
-	for(int i=0;i<w.length();i=i+1) {
-	    board[r][c] = w.charAt(i);
-	    c = c + 1;
-	    r = r - 1;
+	if ( checker(w, r, c, -1, 1) == true ) {
+	    for(int i=0;i<w.length();i=i+1) {
+		board[r][c] = w.charAt(i);
+		c = c + 1;
+		r = r - 1;
+	    }
 	}
     }
     public void addWordSW(String w, int row, int col) {
 	int r = row;
 	int c = col;
-	for(int i=0;i<w.length();i=i+1) {
-	    board[r][c] = w.charAt(i);
-	    c = c - 1;
-	    r = r + 1;
+	if ( checker(w, r, c, 1, -1) == true ) { 
+	    for(int i=0;i<w.length();i=i+1) {
+		board[r][c] = w.charAt(i);
+		c = c - 1;
+		r = r + 1;
+	    }
 	}
-    }
-    public boolean canAdd(int r, int c) {
-	if ( board[r][c] == "." ) {
-	    return true;
-	} else if ( board
-    }
-
-    public static void main(String[] args) {
-	WordSearch W = new WordSearch();
-	W.addWordH("hello",8,8);
-	W.addWordV("there",10,9);
-	W.addWordSE("boo",1,1);
-	W.addWordNE("cat",13,14);
-	W.addWordSW("dog",11,4);
-	W.addWordNW("bug",19,10);
-	System.out.println(W);
     }
 
 }
