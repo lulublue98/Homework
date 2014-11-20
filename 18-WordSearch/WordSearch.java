@@ -148,7 +148,7 @@ public class WordSearch {
     public void fillIn() {
 	for (int i=0;i<board.length;i=i+1) {
 	    for (int j=0;j<board[i].length;j=j+1) {
-		if (board[i][j]=='.') {
+		int n = Rand.nextInt()
 
 		}
 	    }
