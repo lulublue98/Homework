@@ -2,8 +2,9 @@ public class PuzzleDriver {
 
     public static void main(String[] args) {
 	WordSearch W = new WordSearch();
+	W.addWordVdw("opal",8,12);
 	W.addWordHlf("hello",8,8);
-	W.addWordHrt("great",8,8);
+	W.addWordHrt("great",7,7);
 	W.addWordVdw("there",10,9);
 	W.addWordVup("hat",6,19);
 	W.addWordSE("boo",1,1);
