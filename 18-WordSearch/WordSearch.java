@@ -8,13 +8,14 @@ public class WordSearch {
     private char[][] board;
     private int Row;
     private int Col;
+    private int numWords;
     private Random Rand = new Random();
     private String kind;
     private ArrayList<String> words = new ArrayList<String>(50);
 
     /* ------------------------- contructors ------------------------- */
 
-    public WordSearch(int r, int c, String k) {
+    public WordSearch(int r, int c, String k, int num) {
 	Row = r;
 	Col = c;
 	board = new char[r][c];
@@ -24,9 +25,10 @@ public class WordSearch {
 	    }
 	}
 	kind = k;
+	numWords = num;
     }
     public WordSearch() {
-	this(20,30,"words.txt");
+	this(20,30,"words.txt",10);
     }
 
     /* ------------------------- toString ------------------------- */
@@ -93,7 +95,9 @@ public class WordSearch {
 		board[r][c] = w.charAt(i);
 		c = c - 1;
 	    }
+	    return true;
 	}
+	return false;
     }
     public boolean addWordVup(String w, int row, int col) {
 	int r = row;
@@ -175,36 +179,38 @@ public class WordSearch {
 	    words.add(s);
 	}
     }
-
+    
     public void wordAdder() {
-	for (int i=0;i<words.length;i=i+1) {
+	int i = 0;
+	while (i<numWords) {
 	    int r = Rand.nextInt(Row+1);
 	    int c = Rand.nextInt(Col+1);
-	    String x = words[i];
-	    boolean d == false;
-	    while (boolean d == false) {
+	    String x = words.get(i);
+	    boolean d = false;
+	    while (d == false) {
 		int n = Rand.nextInt(8);
 		if (n==0) {
-		    boolean d = addWordHlf(x,r,c);
+		    d = addWordHlf(x,r,c);
 		} else if (n==1) {
-		    boolean d = addWordHrt(x,r,c);
+		    d = addWordHrt(x,r,c);
 		} else if (n==2) {
-		    boolean d = addWordVup(x,r,c);
+		    d = addWordVup(x,r,c);
 		} else if (n==3) {
-		    boolean d = addWordVdw(x,r,c);
+		    d = addWordVdw(x,r,c);
 		} else if (n==4) {
-		    boolean d = addWordNE(x,r,c);
+		    d = addWordNE(x,r,c);
 		} else if (n==5) {
-		    boolean d = addWordNW(x,r,c);
+		    d = addWordNW(x,r,c);
 		} else if (n==6) {
-		    boolean d = addWordSE(x,r,c);
+		    d = addWordSE(x,r,c);
 		} else if (n==7) {
-		    boolean d = addWordSW(x,r,c);
+		    d = addWordSW(x,r,c);
 		}
 	    }
+	    i = i + 1;
 	}
     }
-
+    /*
     public void fillIn() {
 	for (int i=0;i<board.length;i=i+1) {
 	    for (int j=0;j<board[i].length;j=j+1) {
@@ -216,11 +222,10 @@ public class WordSearch {
 	    }
 	}
     }
-
     public void MakePuzzle() {
 	ReadFile();
 	wordAdder();
 	fillIn();
     }
-
+    */
 }
