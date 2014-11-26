@@ -12,6 +12,7 @@ public class WordSearch {
     private Random Rand = new Random();
     private String kind;
     private ArrayList<String> words = new ArrayList<String>(50);
+    private ArrayList<String> key = new ArrayList<String>(50);
 
     /* ------------------------- contructors ------------------------- */
 
@@ -195,20 +196,28 @@ public class WordSearch {
 		int n = Rand.nextInt(8);
 		if (n==0) {
 		    d = addWordHlf(x,r,c);
+		    key.add(x);
 		} else if (n==1) {
 		    d = addWordHrt(x,r,c);
+		    key.add(x);
 		} else if (n==2) {
 		    d = addWordVup(x,r,c);
+		    key.add(x);
 		} else if (n==3) {
 		    d = addWordVdw(x,r,c);
+		    key.add(x);
 		} else if (n==4) {
 		    d = addWordNE(x,r,c);
+		    key.add(x);
 		} else if (n==5) {
 		    d = addWordNW(x,r,c);
+		    key.add(x);
 		} else if (n==6) {
 		    d = addWordSE(x,r,c);
+		    key.add(x);
 		} else if (n==7) {
 		    d = addWordSW(x,r,c);
+		    key.add(x);
 		}
 		killit = killit + 1;
 	    }
@@ -243,6 +252,11 @@ public class WordSearch {
 	    printer = printer + "\n";
 	}
 	printer = printer + "\n";
+	int n = 0;
+	while (n<numWords-1) {
+	    printer = printer + key.get(n) + "   ";
+	    n = n + 1;
+	}
 	return printer;
     }
     
