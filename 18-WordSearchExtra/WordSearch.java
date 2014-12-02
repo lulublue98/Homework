@@ -252,10 +252,15 @@ public class WordSearch {
 	    printer = printer + "\n";
 	}
 	printer = printer + "\n";
+<<<<<<< Updated upstream:18-WordSearchExtra/WordSearch.java
 	int n = 0;
 	while (n<numWords-1) {
 	    printer = printer + key.get(n) + "   ";
 	    n = n + 1;
+=======
+	for (int n=0;n<key.size();n=n+1) {
+	    printer = printer + key.get(n) + "   ";
+>>>>>>> Stashed changes:18-WordSearch/WordSearch.java~
 	}
 	return printer;
     }
