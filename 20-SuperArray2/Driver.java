@@ -1,16 +1,15 @@
 public class Driver {
 
     public static void main(String[] args) {
-	OrderedSuperArray A = new OrderedSuperArray(5);
-	int a = A.size();
-	System.out.println(a);
+	SuperArray A = new SuperArray(5);
 	A.add("ant");
-	A.add("elf");
+	A.add("elephant");
 	A.add("cat");
 	A.add("pig");
 	A.add("dog");
 	System.out.println(A);
-	
+	A.isort();
+	System.out.println(A);
     }
 
 }

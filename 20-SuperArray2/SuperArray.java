@@ -41,7 +41,7 @@ public class SuperArray {
     }
 
     public void grow() {
-	if ( endpt >= data.length ) {
+	if ( endpt > data.length ) {
 	    String[] end = new String[data.length + (data.length/2)];
 	    for (int i=0;i<data.length;i=i+1) {
 		end[i] = data[i];
@@ -50,13 +50,53 @@ public class SuperArray {
 	}
     }
 
+    public boolean check(String a, String b) {
+	int x = 0;
+	while (x<a.length()) {
+	    char a1 = a.charAt(x);
+	    char b1 = b.charAt(x);
+	    if (a1>b1) {
+		return true;
+	    } else if (b1>a1) {
+		return false;
+	    } else if (a1==b1) {
+		if (x==a.length()-1) {
+		    return false;
+		}
+		x=x+1;
+	    }
+	}
+	return false;
+    }
+
+    public void shift(int index) {
+	
+    }
+
+    /*
     public void isort() {
 	for (int x=0;x<data.length;x=x+1) {
+	    String newvalue = data[x];
 	    int i;
-	    for (i=last;i>0 && newvalue<a[i-1];i=i-1) {
-		a[i] = a[i-1];    
+	    int last = data.length -1;
+	    for (i=last;i>0 && check(newvalue,data[i-1])==false;i=i-1) {
+		data[i] = data[i-1];    
 	    }
-	    a[i]=newvalue;
+	}
+    }
+    */
+
+    public void isort() {
+	for (int x=0;x<data.length;x=x+1) {
+	    int index = 0; 
+	    String temp = data[x];
+	    int y = 0;
+	    while (check(temp,data[y])==true) {
+		index = index + 1;
+		y = y + 1;
+	    }
+	    shift(index);
+	    data[index] = temp;
 	}
     }
 
