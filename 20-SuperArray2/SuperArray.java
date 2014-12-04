@@ -22,6 +22,16 @@ public class SuperArray {
 	return data[index];
     }
 
+ 
+    public void add( String i ) {
+	grow();
+	set( nextBlank, i );
+	if ( nextBlank == endpt ) {
+	    endpt = endpt + 1;
+	}
+	nextBlank = nextBlank + 1;
+    }
+
     public int size() {
 	return data.length;
     }
@@ -37,6 +47,16 @@ public class SuperArray {
 		end[i] = data[i];
 	    }
 	    data = end;
+	}
+    }
+
+    public void isort() {
+	for (int x=0;x<data.length;x=x+1) {
+	    int i;
+	    for (i=last;i>0 && newvalue<a[i-1];i=i-1) {
+		a[i] = a[i-1];    
+	    }
+	    a[i]=newvalue;
 	}
     }
 

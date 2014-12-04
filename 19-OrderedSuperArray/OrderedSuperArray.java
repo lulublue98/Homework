@@ -28,7 +28,7 @@ public class OrderedSuperArray extends SuperArray {
     
     public boolean check(String a, String b) {
 	int x = 0;
-	while (x<a.length) {
+	while (x<a.length()) {
 	    char a1 = a.charAt(x);
 	    char b1 = b.charAt(x);
 	    if (a1>b1) {
@@ -36,12 +36,13 @@ public class OrderedSuperArray extends SuperArray {
 	    } else if (b1>a1) {
 		return false;
 	    } else if (a1==b1) {
-		if (x==a.length-1) {
+		if (x==a.length()-1) {
 		    return false;
 		}
 		x=x+1;
 	    }
 	}
+	return false;
     }
 
     public void shift(int index) {
@@ -54,11 +55,13 @@ public class OrderedSuperArray extends SuperArray {
 
     public void order() {
 	for (int x=0;x<data.length;x=x+1) {
-	    index
+	    int index = 0;
 	    String temp = data[x];
 	    while (check(temp,data[x+1])==true) {
-		
+		index = index + 1;
 	    }
+	    shift(index);
+	    data[index] = temp;
 	}
     }
     
