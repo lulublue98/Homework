@@ -8,7 +8,7 @@ public class Driver {
 	A.add("pig");
 	A.add("dog");
 	System.out.println(A);
-	A.bsort();
+	A.isort();
 	System.out.println(A);
     }
 
