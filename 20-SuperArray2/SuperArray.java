@@ -1,11 +1,13 @@
 public class SuperArray {
 
     private String[] data;
+    private String[] copy;
     private int nextBlank;
     private int endpt;
 
     public SuperArray( int i ) {
 	data = new String[i];
+	copy = new String[i];
 	nextBlank = 0;
 	endpt = i;
     }
@@ -18,26 +20,42 @@ public class SuperArray {
 	return s;
     }
 
+    public void backup() {
+	for (int x=0;x<data.length;x=x+1) {
+	    copy[x] = data[x];
+	}
+    }
+
+    public void restore() {
+	for (int x=0;x<copy.length;x=x+1) {
+	    data[x] = copy[x];
+	}
+    }
+
+    public void fill() {
+	int num = 1;
+	int y = 0;
+	String add = ""
+	for(int x=0;x<data.length;x=x+1) {
+	    if (y>25) {
+		y = 0;
+		num = num + 1;
+	    }
+	    char a = (char)97+y;
+	    char b = (char)97+y+1;
+	    for (int z=0;z<num;z=z+1) {
+		add = add + a;
+	    }
+	    add = add + b;
+	}
+    }
+
     public String get( int index ) {
 	return data[index];
     }
 
- 
-    public void add( String i ) {
-	grow();
-	set( nextBlank, i );
-	if ( nextBlank == endpt ) {
-	    endpt = endpt + 1;
-	}
-	nextBlank = nextBlank + 1;
-    }
-
     public int size() {
 	return data.length;
-    }
-
-    public void set( int index, String i ) {
-       	data[index] = i;
     }
 
     public void grow() {
@@ -69,33 +87,19 @@ public class SuperArray {
 	return false;
     }
 
-    public void shift(int index) {
-	int y = index;
-	int x = data.length - 1;
-	endpt = endpt + 1;
-	grow();
-	while (x>y) {
-	    data[x] = data[x-1];
-	    x = x - 1;
-	}
-    }
-
     public void isort() {
-	for (int x=0;x<data.length;x=x+1) {
-	    int index = 0; 
-	    String temp = data[x];
-	    int y = 0;
-	    while (check(temp,data[y])==true) {
-		index = index + 1;
-		y = y + 1;
+	int i,j;
+	for (i=1;i<data.length;i=i+1) {
+	    String temp=data[i];
+	    for (j=i-1;j>=0&&check(data[j],temp)==true;j=j-1) {
+		data[j+1]=data[j];
 	    }
-	    shift(index);
-	    data[index] = temp;
+	    data[j+1]=temp;
 	}
     }
 
     public void ssort() {
-        for (int i=0;i<data.length-1;i=i+1) {
+        for (int i=0;i<data.length;i=i+1) {
             int index = i;
             for (int j=i+1;j<data.length;j=j+1)
                 if (check(data[index],data[j])==true) {
