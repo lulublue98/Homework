@@ -6,11 +6,6 @@ public class Interval {
     private int high;
     private Random rand = new Random();
 
-    public Interval(int a, int b) {
-	low = Math.min(a,b);
-	high = Math.max(a,b);
-    }
-
     public Interval() {
 	int temp1 = rand.nextInt(100);
 	int temp2 = rand.nextInt(100);
@@ -32,12 +27,6 @@ public class Interval {
 
     public int getHigh() {
 	return high;
-    }
-
-    public int compareTo(Interval other) {
-	int thisint = getHigh() - getLow();
-	int otherint = other.getHigh() - other.getLow();
-        return thisint - otherint;
     }
 
 }
