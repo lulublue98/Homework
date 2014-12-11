@@ -1,9 +1,9 @@
 public class Warrior extends baseChar {
     
-    public Warrior(String name) {
+    public Warrior(String name, int strength) {
 	setName(name);
 	setHealth(100);
-	setStrength(20);
+	setStrength(strength);
 	setPrecision(7);
     }
 
@@ -25,6 +25,10 @@ public class Warrior extends baseChar {
 	} else {
 	    return (this + " long slashes at " + other + " and misses");
 	}
+    }
+
+    public int compareTo(Warrior other) {
+	return getStrength() - other.getStrength();
     }
 
 }
