@@ -1,18 +1,18 @@
 import java.util.*;
 import java.io.*;
 
-public class Searching {
+public class Test {
 
-    private Comparable[] Dictionary;
-    private static int len;
+    private int[] Dictionary;
+    private int len;
 
-    public Searching(int length) {
-	Dictionary = new Comparable[length];
+    public Test(int length) {
+	Dictionary = new int[length];
 	len = length;
     }
 
-    public Searching() {
-	Dictionary = new Comparable[10];
+    public Test() {
+	Dictionary = new int[10];
 	len = 10;
     }
 
@@ -24,16 +24,16 @@ public class Searching {
 	return end;
     }
 
-    public void add(Comparable thing) {
+    public void add(int thing) {
 	int index = 0;
 	int x = 0;
-	while (Dictionary[x]!=null) {
+	while (Dictionary[x]!=0) {
 	    index = index + 1;
 	    x++;
 	}
 	Dictionary[index] = thing;
     }
-
+    /*
     public void sort() {
 	Arrays.sort(Dictionary);
     }
@@ -60,4 +60,5 @@ public class Searching {
 	}
 	return temp;
     }
+    */
 }
