@@ -1,9 +1,9 @@
-public class Dictionary {
+public class Searching {
 
     private Comparable[] Dictionary;
     private int len;
 
-    public Dictionary(int length) {
+    public Searching(int length) {
 	Dictionary = new Comparable[length];
 	len = length - 1;
     }
