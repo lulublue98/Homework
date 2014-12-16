@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class GuiTest extends JFrame {
+public class GuiTwo extends JFrame {
 
     private Container pane;
     private JButton button, exit;
@@ -9,14 +9,13 @@ public class GuiTest extends JFrame {
     private JTextArea text;
     private JPanel canvas;
 
-    public GuiTest() {
-	setTitle("Gui Test Page");
+    public GuiTwo() {
+	setTitle("Second Gui Test");
 	setSize(1100,700);
 	setLocation(100,100);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 	pane = getContentPane();
-	//pane.setLayout(new GridLayout(3,3));
 	pane.setLayout(new FlowLayout());
 	label = new JLabel("buttons: ");
 	pane.add(label);
@@ -32,16 +31,8 @@ public class GuiTest extends JFrame {
 
 	canvas = new JPanel();
 	canvas.setPreferredSize(new Dimension(300, 300));
-	canvas.setBorder(BorderFactory.createLineBorder(Color.green,2));
+	canvas.setBorder(BorderFactory.createLineBorder(Color.red,2));
 	pane.add(canvas);
-
-	/*
-	  This is for adding more stuff like buttons and smaller sections
-
-	JPanel P = new JPanel();
-	pane.add(P);
-	P.setLayout(new GridLayout(3,3));
-	*/
 
     }
 
